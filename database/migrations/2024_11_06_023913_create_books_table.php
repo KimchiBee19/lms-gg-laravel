@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->foreignId('genre_id')->constrained();
             $table->string('title');
-            $table->string('summary');
+            $table->year('year');
+            $table->text('description');
+            $table->text('summary');
             $table->string('author');
+            $table->string( 'publisher');
+            $table->integer( 'pages');
             $table->integer('quota');
             $table->timestamps();
         });
