@@ -13,7 +13,37 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <!-- jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+
+        <!-- DataTables JS -->
+        <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+        
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
+
+    
+    <style>
+    select.dt-input {
+                margin-right: 5px !important;
+                width: 60px;
+            }
+
+            .dt-type-numeric {
+                text-align: left !important;
+            }
+
+            input.dt-input {
+                margin-left: 5px !important;
+            }
+    </style>
+    
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
@@ -32,5 +62,6 @@
                 {{ $slot }}
             </main>
         </div>
+        
     </body>
 </html>

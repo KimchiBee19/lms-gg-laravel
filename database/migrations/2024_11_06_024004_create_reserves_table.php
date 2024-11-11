@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('book_id')->constrained()->cascadeOnDelete();
-            $table->timestamp('waktu_pinjam')->nullable();
-            $table->timestamp('waktu_kembali')->nullable(); 
+            $table->string('status');
+            $table->date('waktu_pinjam');
+            $table->date('waktu_kembali'); 
             $table->timestamps();
-
         });
     }
 
