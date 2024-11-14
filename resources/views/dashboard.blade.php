@@ -1,67 +1,82 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-md text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __("You're logged in!") }}
-        </h2>
-    </x-slot>
-
-    <!-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+    <div class="section1 relative h-screen overflow-hidden">
+        <img src="{{ asset('images/library.png') }}" alt="Foto Gereja" class="absolute inset-0 w-full h-full object-cover z-10">
+        <div class="absolute inset-0 bg-black opacity-70 z-20"></div>
+        <div class="relative py-12 z-30">
+            <div class="max-w-sm md:max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        {{ __("You're logged in!") }}
+                    </div>
                 </div>
             </div>
         </div>
-    </div> -->
 
-    <!-- <div class="header pt-8">
-        <h1 class="text-4xl text-center font-semibold">Books Collection</h1>
-    </div> -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30  text-white">
+            <p class="text-4xl text-center font-bold">Welcome to the library,</p>
+            <p class="text-4xl text-center font-bold pt-2">Your Gateway to Endless Discovery!</p>
+        </div>
+    </div>
+    <div class="section2 py-20 bg-gray-100">
+        <div class="text-center text-gray-900">
+            <p class="text-4xl font-bold">Opening Hours</p>
+        </div>
+        <!-- Hours -->
+        <div class="mt-8 space-y-8 max-w-lg mx-auto">
+            <!-- Weekdays -->
+            <div class="md:flex justify-between items-center">
+                <p class="pb-2 md:pb-0 text-center text-2xl font-semibold">Weekdays</p>
+                <div class="text-center md:text-right">
+                    <p class="text-2xl font-semibold">07.30 - 21.00</p>
+                    <p class="text-sm text-gray-600">Western Indonesia Time (UTC+7)</p>
+                </div>
+            </div>
+            
+            <!-- Weekend -->
+            <div class="md:flex justify-between items-center">
+                <p class="pb-2 md:pb-0 text-center text-2xl font-semibold">Weekend</p>
+                <div class="text-center md:text-right">
+                    <p class="text-2xl font-semibold">08.00 - 17.00</p>
+                    <p class="text-sm text-gray-600">Western Indonesia Time (UTC+7)</p>
+                </div>
+            </div>
+            
+            <!-- National Holiday -->
+            <div class="md:flex justify-between items-center">
+                <p class="pb-2 md:pb-0 text-center text-2xl font-semibold">National Holiday</p>
+                <div class="text-center md:text-right">
+                    <p class="text-2xl font-semibold">CLOSED</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section3 py-20 bg-black">
+        <div class="text-center text-white mb-8">
+            <p class="text-4xl font-bold">Contact Us</p>
+        </div>
+        
+        <!-- Contact Details -->
+        <div class="flex flex-col md:flex-row justify-center items-center mt-8 max-w-4xl mx-auto md:space-x-28 space-y-8 md:space-y-0 text-white">
+            
+            <!-- Email -->
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 w-full md:w-auto">
+                <!-- Email Icon from Font Awesome -->
+                <i class="fas fa-envelope fa-2x m-4 md:fa-3x w-8 h-8 text-white"></i>
+                <div class="text-center md:text-left">
+                    <p class="text-2xl font-semibold">Email Us</p>
+                    <p class="text-xl">contact@library.com</p>
+                </div>
+            </div>
 
-    <div class="books-card py-10 px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <div class="p-8 md:py-8">
-                <img class="object-contain w-full rounded-lg shadow-md md:h-80" src="https://www.gramedia.com/blog/content/images/2022/09/1-3.jpg" alt="">
+            <!-- Phone -->
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 w-full md:w-auto">
+                <!-- Phone Icon from Font Awesome -->
+                <i class="fas fa-phone-alt fa-2x m-4 md:fa-3x w-8 h-8 text-white"></i>
+                <div class="text-center md:text-left">
+                    <p class="text-2xl font-semibold">Call Us</p>
+                    <p class="text-xl">+123-456-7890</p>
+                </div>
             </div>
-            <hr class="w-3/4 border-gray-300">
-            <div class="flex flex-col justify-between text-center p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Laut Bercerita</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Author: Leila S. Chudori</p>
-            </div>
-        </a>
-
-        <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <div class="p-8 md:py-8">
-                <img class="object-contain w-full rounded-lg shadow-md md:h-80" src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2024/1/20/qvjtc65vbzmexfegzrgs7u.jpg" alt="">
-            </div>
-            <hr class="w-3/4 border-gray-300">
-            <div class="flex flex-col justify-between text-center p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">The Psychology of Money</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Author: Morgan Housel</p>
-            </div>
-        </a>
-
-        <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <div class="p-8 md:py-8">
-                <img class="object-contain w-full rounded-lg shadow-md md:h-80" src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/_Kover_Depan_The_Maxwell_Daily_Reader.jpg" alt="">
-            </div>
-            <hr class="w-3/4 border-gray-300">
-            <div class="flex flex-col justify-between text-center p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">The Maxwell Daily Reader</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Author: John C. Maxwell</p>
-            </div>
-        </a>
-
-        <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <div class="p-8 md:py-8">
-                <img class="object-contain w-full rounded-lg shadow-md md:h-80" src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/Home_Sweet_Loan_cov.jpg" alt="">
-            </div>
-            <hr class="w-3/4 border-gray-300">
-            <div class="flex flex-col justify-between text-center p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Home Sweet Loan</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Author: Almira Bastari</p>
-            </div>
-        </a>
+        </div>
     </div>
 </x-app-layout>
