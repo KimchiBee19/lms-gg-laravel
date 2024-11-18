@@ -18,6 +18,7 @@ return new class extends Migration
             $table->year('year');
             $table->text('description');
             $table->text('summary');
+            $table->string('image');
             $table->string('author');
             $table->string( 'publisher');
             $table->integer( 'pages');

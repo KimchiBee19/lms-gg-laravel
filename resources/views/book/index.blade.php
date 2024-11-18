@@ -23,7 +23,10 @@
         <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
             @foreach ($books as $book)
             <div class="bg-white rounded-lg shadow-md overflow-hidden relative">
-                <img src="https://via.placeholder.com/150" alt="Book Cover" class="w-full h-48 object-cover">
+                <div class="flex items-center justify-center py-4 bg-gray-50">
+                    <img src="{{ asset($book->image) }}" alt="Book Cover" class="w-33 h-48 rounded shadow-md object-cover">
+                </div>
+                <hr class="w-full border-gray-300">
                 <div class="p-4 pb-16">
                     <h2 class="text-xl font-semibold">{{$book->title}}</h2>
                     <p class="text-gray-700">Author: {{$book->author}}</p>
