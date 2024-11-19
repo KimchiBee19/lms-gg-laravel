@@ -17,6 +17,7 @@
             <p class="text-4xl text-center font-bold pt-2">Your Gateway to Endless Discovery!</p>
         </div>
     </div>
+
     <div class="section2 py-20 bg-gray-100">
         <div class="text-center text-gray-900">
             <p class="text-4xl font-bold">Opening Hours</p>
@@ -24,32 +25,33 @@
         <!-- Hours -->
         <div class="mt-8 space-y-8 max-w-lg mx-auto">
             <!-- Weekdays -->
-            <div class="md:flex justify-between items-center">
-                <p class="pb-2 md:pb-0 text-center text-2xl font-semibold">Weekdays</p>
+            <div class="md:flex justify-between items-center border-b border-gray-300 pb-4">
+                <p class="text-center md:text-left text-2xl font-semibold">Weekdays</p>
                 <div class="text-center md:text-right">
                     <p class="text-2xl font-semibold">07.30 - 21.00</p>
                     <p class="text-sm text-gray-600">Western Indonesia Time (UTC+7)</p>
                 </div>
             </div>
-            
+
             <!-- Weekend -->
-            <div class="md:flex justify-between items-center">
-                <p class="pb-2 md:pb-0 text-center text-2xl font-semibold">Weekend</p>
+            <div class="md:flex justify-between items-center border-b border-gray-300 pb-4">
+                <p class="text-center md:text-left text-2xl font-semibold">Weekend</p>
                 <div class="text-center md:text-right">
                     <p class="text-2xl font-semibold">08.00 - 17.00</p>
                     <p class="text-sm text-gray-600">Western Indonesia Time (UTC+7)</p>
                 </div>
             </div>
-            
+
             <!-- National Holiday -->
             <div class="md:flex justify-between items-center">
-                <p class="pb-2 md:pb-0 text-center text-2xl font-semibold">National Holiday</p>
+                <p class="text-center md:text-left text-2xl font-semibold">National Holiday</p>
                 <div class="text-center md:text-right">
                     <p class="text-2xl font-semibold">CLOSED</p>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="section3 py-20 bg-black">
         <div class="text-center text-white mb-8">
             <p class="text-4xl font-bold">Contact Us</p>

@@ -28,7 +28,7 @@ class ReservationController extends Controller
 
     public function view()
     {
-        $reserves = DB::table('reserves')->where('user_id', Auth::user()->id)->get();
+        $reserves = Reserve::where('user_id', Auth::user()->id)->get();
         return view('book.reservationView', compact('reserves'));
     }
 

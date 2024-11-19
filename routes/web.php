@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/reserve/{id}', [ReservationController::class, 'show'])->name('reserve.show');
     Route::post('reserve', [ReservationController::class, 'submit'])->name('reserve.submit');
-    Route::get('view', [ReservationController::class, 'view'])->name('reserve.view');
+    Route::get('reservation', [ReservationController::class, 'view'])->name('reserve.view');
     Route::delete('/reserve/{id}', [ReservationController::class, 'destroy'])->name('reserve.destroy');
 });
 

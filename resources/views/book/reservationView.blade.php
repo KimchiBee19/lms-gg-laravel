@@ -30,7 +30,7 @@
                     @foreach($reserves as $reservation)
                         <tr>
                             <td>{{ $reservation->id }}</td>
-                            <td>{{ $reservation->book_id }}</td>
+                            <td>{{ $reservation->book->title }}</td>
                             @php
                                 $waktu_pinjam = \Carbon\Carbon::parse($reservation->waktu_pinjam)->format('d-m-Y');
                                 $waktu_kembali = \Carbon\Carbon::parse($reservation->waktu_kembali)->format('d-m-Y');
