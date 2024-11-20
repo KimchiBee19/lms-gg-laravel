@@ -35,6 +35,15 @@ class ReservationController extends Controller
 
     public function destroy($id)
     {
+        $book = DB::table("reserves")->where('id',decrypt($id))->get()->value('book_id');
+        
+        $quota = DB::table("books")->where('id',$book)->first();
+
+        $update_quota = DB::table("books")->where('id',$book)
+            ->update([
+                'quota' => $quota->quota + 1,
+            ]);
+
         $reserve = Reserve::findOrFail(decrypt($id));
         $reserve->delete();
         Session::flash('title', 'Hapus Data Berhasil!');
@@ -57,6 +66,8 @@ class ReservationController extends Controller
             'waktu_pinjam.after_or_equal' => 'Reservation Date sudah lewat',
         ]);
 
+        $quota = DB::table("books")->where('id',decrypt($validatedata['book_id']))->first();
+
         $waktu_pinjam = \Carbon\Carbon::parse($validatedata['waktu_pinjam']);
         $waktu_kembali = \Carbon\Carbon::parse($validatedata['waktu_kembali']);
 
@@ -73,6 +84,12 @@ class ReservationController extends Controller
                 'waktu_pinjam' => $validatedata['waktu_pinjam'],
                 'waktu_kembali' => $validatedata['waktu_kembali'],
             ]);
+
+            $update_quota = DB::table("books")->where('id',decrypt($validatedata['book_id']))
+            ->update([
+                'quota' => $quota->quota - 1,
+            ]);
+
             Session::flash('title', 'Reserve Berhasil!');
             Session::flash('message', '');
             Session::flash('icon', 'success');

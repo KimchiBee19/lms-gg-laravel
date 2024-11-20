@@ -23,6 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('/book', [BookController::class, 'show'])->name('book.show');
+    Route::get('/book/{id}', [BookController::class, 'detail'])->name('book.detail');
+    Route::delete('/book/{id}', [BookController::class, 'destroy'])->name('book.destroy');
 
     Route::get('/reserve/{id}', [ReservationController::class, 'show'])->name('reserve.show');
     Route::post('reserve', [ReservationController::class, 'submit'])->name('reserve.submit');

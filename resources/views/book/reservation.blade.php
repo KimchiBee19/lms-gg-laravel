@@ -1,7 +1,7 @@
 <x-app-layout>
     @include('components.swallalert')
     <x-slot name="header">
-        <h1 class="text-2xl font-bold">Library Book Reservation System</h1>
+        <h1 class="text-2xl font-bold text-center">Library Book Reservation System</h1>
     </x-slot>
 
     <div class="py-12">
@@ -29,8 +29,11 @@
                 <input type="date" name="waktu_kembali" required class="w-full p-2 border border-gray-300 rounded mb-4">
 
                 <x-input-error :messages="$errors->get('waktu_kembali')" class="mb-2" />
-
-                <button type="submit" class="bg-blue-600 text-white p-2 rounded hover:bg-blue-700">Reserve</button>
+                
+                <div class="flex justify-center space-x-4 mt-4">
+                    <button type="submit" class="bg-blue-600 text-white p-4 rounded hover:bg-blue-700 text-lg">Book</button>
+                    <button type="submit" onclick="history.back();" class="bg-red-600 text-white p-4 rounded hover:bg-red-700 text-lg">Cancel</button>
+                </div>
             </form>
 
         </section>
