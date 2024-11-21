@@ -23,9 +23,11 @@
             <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
                 @foreach ($books as $book)
                     <div class="bg-white rounded-lg shadow-md overflow-hidden relative">
+                        <a href="{{route('book.detail', encrypt($book->id))}}"  > 
                         <div class="flex items-center justify-center py-4 bg-gray-50">
                             <img src="{{ asset($book->image) }}" alt="Book Cover" class="w-33 h-48 rounded shadow-md object-cover">
                         </div>
+                        </a>
                         <hr class="w-full border-gray-300">
                         <div class="p-4 pb-16">
                             <h2 class="text-xl font-semibold">{{$book->title}}</h2>
@@ -43,7 +45,7 @@
                                         Not Available
                                     </button>
                                 @elseif($book->quota > 0)
-                                    <button onclick="window.location='{{ url( '/reserve/'.encrypt($book->id)) }}'" 
+                                    <button onclick="window.location='{{ url( '/reserve/'.encrypt($book->id))}}'" 
                                         class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">
                                         Reserve
                                     </button>

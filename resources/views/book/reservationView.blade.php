@@ -1,7 +1,7 @@
 <x-app-layout>
     @include('components.swallalert')
     <x-slot name="header">
-        <h1 class="text-2xl font-bold">Library Book Reservation System</h1>
+        <h1 class="text-2xl font-bold text-center">Library Book Reservation System</h1>
     </x-slot>
 
     <div class="py-12">
