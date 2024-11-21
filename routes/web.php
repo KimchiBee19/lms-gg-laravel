@@ -23,8 +23,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     Route::get('/book', [BookController::class, 'show'])->name('book.show');
+<<<<<<< Updated upstream
     Route::get('/book/{id}', [BookController::class, 'detail'])->name('book.detail');
     Route::delete('/book/{id}', [BookController::class, 'destroy'])->name('book.destroy');
+=======
+    Route::get('/book/{id}', [BookController::class, 'detail'])->name('book.detail'); 
+>>>>>>> Stashed changes
 
     Route::get('/reserve/{id}', [ReservationController::class, 'show'])->name('reserve.show');
     Route::post('reserve', [ReservationController::class, 'submit'])->name('reserve.submit');
@@ -34,7 +38,13 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:1'])->group(function(){
         Route::get('/book/edit/{book:id}', [BookController::class, 'edit'])->name('book.edit');
         Route::put('/book/update/{book:id}', [BookController::class, 'update'])->name('book.update');
+<<<<<<< Updated upstream
     });
+=======
+        Route::delete('/book/delete/{book:id}', [BookController::class, 'destroy'])->name('book.destroy');
+        Route::get('/books', [BookController::class, 'list'])->name('book.list');
+    });    
+>>>>>>> Stashed changes
 });
 
 require __DIR__.'/auth.php';
