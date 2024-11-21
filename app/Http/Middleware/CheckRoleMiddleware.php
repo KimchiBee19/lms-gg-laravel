@@ -14,9 +14,13 @@ class CheckRoleMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, ...$roleId): Response
+    public function handle(Request $request, Closure $next, $role)
     {
-        if (Auth::user()->role_id != $roleId) {
+        if (!Auth::check()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+
+        if (Auth::user()->role_id != $role) {
             return response()->json(['message' => 'Unauthorized'], 403);
         }
 

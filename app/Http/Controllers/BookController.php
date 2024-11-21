@@ -38,4 +38,12 @@ class BookController extends Controller
         Session::flash('icon', 'success');
         return redirect()->route('book.show');
     }
+
+    public function edit(){
+        return view('book.form');
+    }
+
+    public function update(){
+        return view('book.form');
+    }
 }

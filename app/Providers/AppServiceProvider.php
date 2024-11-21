@@ -25,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
             return $user->role_id == 1;
         });
 
+        Gate::define('delete-book', function(User $user){
+            return $user->role_id == 1;
+        });
+
         Gate::define('reserve-book', function(User $user){
             return $user->role_id == 2;
         });

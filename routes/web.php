@@ -24,17 +24,17 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/book', [BookController::class, 'show'])->name('book.show');
     Route::get('/book/{id}', [BookController::class, 'detail'])->name('book.detail');
-    Route::delete('/book/{id}', [BookController::class, 'destroy'])->name('book.destroy');
 
     Route::get('/reserve/{id}', [ReservationController::class, 'show'])->name('reserve.show');
     Route::post('reserve', [ReservationController::class, 'submit'])->name('reserve.submit');
     Route::get('reservation', [ReservationController::class, 'view'])->name('reserve.view');
     Route::delete('/reserve/{id}', [ReservationController::class, 'destroy'])->name('reserve.destroy');
 
-    Route::middleware(['role:1'])->group(function(){
+    Route::middleware(['role:1'])->group(function () {
         Route::get('/book/edit/{book:id}', [BookController::class, 'edit'])->name('book.edit');
         Route::put('/book/update/{book:id}', [BookController::class, 'update'])->name('book.update');
-    });
+        Route::delete('/book/delete/{book:id}', [BookController::class, 'destroy'])->name('book.destroy');
+    });    
 });
 
 require __DIR__.'/auth.php';
