@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Session;
 class BookController extends Controller
 {
     //
+    public function list()
+    {
+        $books = DB::table('books');
+        
+        $books = $books->get();
+        
+        return view('book.list', compact('books'));
+    }
 
     public function show(){
         $books = DB::table('books');

@@ -23,6 +23,13 @@
                     <x-nav-link :href="route('reserve.view')" :active="request()->routeIs('reserve.view')">
                         {{ __('Reservations') }}
                     </x-nav-link>
+
+                    @if(Auth::user() && Auth::user()->role_id == 1)
+                        <x-nav-link :href="route('book.list')" :active="request()->routeIs('book.list')">
+                            {{ __('Book List') }}
+                        </x-nav-link>
+                    @endif
+
                 </div>
             </div>
 
