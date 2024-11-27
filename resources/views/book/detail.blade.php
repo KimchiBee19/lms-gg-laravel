@@ -6,8 +6,8 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <div class="flex flex-col lg:flex-row">
-                <div class="flex-shrink-0">
-                    <img src="{{ asset($book->image) }}" alt="Book Cover" class="w-48 h-72 object-cover">
+                <div class="flex-shrink-0 flex justify-center items-center p-8">
+                    <img src="{{ asset($book->image) }}" alt="Book Cover" class="w-48 h-72 rounded shadow-md object-cover">
                 </div>
                 <div class="p-6">
                     <h2 class="text-xl font-semibold">Details</h2>
@@ -17,12 +17,13 @@
                     <p class="text-gray-700"><strong>Pages:</strong> {{ $book->pages}}</p>
                     <p class="text-gray-700"><strong>Genre:</strong> {{ $book->genre->name ?? 'N/A' }}</p>
                     <p class="text-gray-700"><strong>Quota:</strong> {{ $book->quota}}</p>
-                    <h3 class="text-lg font-semibold mt-4">Summary</h3>
-                    <p class="text-gray-600">{{ $book->summary }}</p>
                     <h3 class="text-lg font-semibold mt-4">Description</h3>
                     <p class="text-gray-600">{{ $book->description }}</p>
+                    <h3 class="text-lg font-semibold mt-4">Summary</h3>
+                    <p class="text-gray-600">{{ $book->summary }}</p>
                 </div>
             </div>
+            <hr class="border-1 border-gray-200">
             <div class="p-4 bg-gray-50 text-right">
                 <!-- User -->
                 @can('reserve-book')
