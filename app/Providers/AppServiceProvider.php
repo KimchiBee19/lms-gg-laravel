@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::define('update-book', function(User $user){
+            return $user->role_id == 1;
+        });
+
+        Gate::define('delete-book', function(User $user){
+            return $user->role_id == 1;
+        });
+
+        Gate::define('reserve-book', function(User $user){
+            return $user->role_id == 2;
+        });
     }
 }

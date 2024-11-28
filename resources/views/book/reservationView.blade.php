@@ -1,7 +1,7 @@
 <x-app-layout>
     @include('components.swallalert')
     <x-slot name="header">
-        <h1 class="text-2xl font-bold">Library Book Reservation System</h1>
+        <h1 class="text-2xl font-bold text-center">Library Book Reservation System</h1>
     </x-slot>
 
     <div class="py-12">
@@ -33,14 +33,15 @@
                     @foreach($reserves as $reservation)
                         <tr>
                             <td>{{ $reservation->id }}</td>
-<<<<<<< Updated upstream
+
                             <td>{{ $reservation->book_id }}</td>
-=======
+
                             @if(Auth::user()->role_id==1)
                             <td>{{ $reservation->user->name }}</td>
                             @endif 
+                            
                             <td>{{ $reservation->book->title }}</td>
->>>>>>> Stashed changes
+
                             @php
                                 $waktu_pinjam = \Carbon\Carbon::parse($reservation->waktu_pinjam)->format('d-m-Y');
                                 $waktu_kembali = \Carbon\Carbon::parse($reservation->waktu_kembali)->format('d-m-Y');
@@ -58,7 +59,7 @@
                                 <form id="delete-form-{{ $reservation->id }}" action="{{ route('reserve.destroy', encrypt($reservation->id)) }}" method="POST" class="inline-block ml-2">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="button" onclick="confirmDialog('{{ $reservation->id }}')" class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Delete</button>
+                                    <button type="button" onclick="confirmDialog('{{ $reservation->id }}')" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">Delete</button>
                                 </form>
                             </td>
                         </tr>
