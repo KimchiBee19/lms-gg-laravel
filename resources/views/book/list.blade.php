@@ -7,6 +7,11 @@
     <div class="pb-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="container mx-auto p-6">
+            <div class="mb-4 w-3/5 max-w-full mx-auto">
+                <button type="submit" class="w-full bg-green-500 text-white font-semibold py-2 rounded-md  hover:bg-green-700">
+                <a href="/books/add">ADD BOOK</a>
+                </button> 
+            </div>
             <table  id="reservation_table" class="table table-striped table-hover">
                 <thead>
                     <tr>
