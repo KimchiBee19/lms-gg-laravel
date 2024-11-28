@@ -34,41 +34,22 @@
                             <p class="text-gray-700">Author: {{$book->author}}</p>
                             <p class="text-gray-600 mt-2">{{$book->summary}}</p>
                             <div class="absolute bottom-4 right-4 flex items-center space-x-4">
-                                <!-- Admin -->
-                                @can('update-book')
-                                    <a href="{{ route('book.edit', $book->id) }}" 
+                                <!-- Book Quota -->
+                                <span class="text-white bg-yellow-500 text-sm px-3 py-1 rounded-full">
+                                    Quota: {{$book->quota}}
+                                </span>
+                                <!-- Reserve Button -->
+                                @if ($book->quota == 0)
+                                    <button disabled
+                                        class="bg-red-600 text-white py-2 px-4 rounded">
+                                        Not Available
+                                    </button>
+                                @elseif($book->quota > 0)
+                                    <button onclick="window.location='{{ url( '/reserve/'.encrypt($book->id)) }}'" 
                                         class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">
-                                        Edit
-                                    </a>
-                                @endcan
-
-                                @can('delete-book')
-                                    <form id="delete-form-{{ $book->id }}" action="{{ route('book.destroy', encrypt($book->id)) }}" method="POST" class="inline-block ml-2">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="button" onclick="confirmDialog('{{ $book->id }}')" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition ease-in-out duration-200">Delete</button>
-                                    </form>
-                                @endcan
-
-                                <!-- User -->
-                                @can('reserve-book')
-                                    <!-- Book Quota -->
-                                    <span class="text-white bg-yellow-500 text-sm px-3 py-1 rounded-full">
-                                        Quota: {{$book->quota}}
-                                    </span>
-                                    <!-- Reserve Button -->
-                                    @if ($book->quota == 0)
-                                        <button disabled
-                                            class="bg-red-600 text-white py-2 px-4 rounded">
-                                            Not Available
-                                        </button>
-                                    @elseif($book->quota > 0)
-                                        <button onclick="window.location='{{ url( '/reserve/'.encrypt($book->id)) }}'" 
-                                            class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">
-                                            Reserve
-                                        </button>
-                                    @endif
-                                @endcan
+                                        Reserve
+                                    </button>
+                                @endif
                             </div>
                         </div>
                     </div>

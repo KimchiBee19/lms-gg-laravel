@@ -25,31 +25,9 @@
             </div>
             <hr class="border-1 border-gray-200">
             <div class="p-4 bg-gray-50 text-right">
-                <!-- User -->
-                @can('reserve-book')
-                    <button type="button" onclick="window.location.href='{{ url('/reserve/' . encrypt($book->id)) }}'" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">
-                        Reserve this book
-                    </button>
-                @endcan
-
-                <!-- Admin -->
-                @can('update-book')
-                    <button type="button" onclick="window.location.href='{{ url('book/edit', $book->id) }}'" 
-                        class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">
-                            Edit
-                        </button>
-                @endcan
-                
-                @can('delete-book')
-                    <form id="delete-form-{{ $book->id }}" action="{{ route('book.destroy', encrypt($book->id)) }}" method="POST" class="inline-block ml-2">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" onclick="confirmDialog('{{ $book->id }}')" 
-                        class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition ease-in-out duration-200">
-                            Delete
-                        </button>
-                    </form>
-                @endcan
+                <button type="button" onclick="window.location.href='{{ url('/reserve/' . encrypt($book->id)) }}'" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">
+                    Reserve this book
+                </button>
             </div>
         </div>
     </div>
