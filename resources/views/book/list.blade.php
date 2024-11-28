@@ -7,6 +7,17 @@
     <div class="pb-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="container mx-auto p-6">
+<<<<<<< Updated upstream
+=======
+            <div class="mb-4 w-5/5 max-w-full mx-auto flex justify-start">
+                <button type="submit" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700">
+                    <a href="/books/add">
+                        <i class="fa-solid fa-plus"></i>
+                    ADD BOOK</a>
+                </button> 
+            </div>
+
+>>>>>>> Stashed changes
             <table  id="reservation_table" class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -25,8 +36,9 @@
                             <td>
                                 @can('update-book')
                                     <button type="button" onclick="window.location.href='{{ url('book/edit', $book->id) }}'" 
-                                        class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">
-                                            Edit
+                                        class="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition ease-in-out duration-200">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        Edit
                                         </button>
                                 @endcan
                                 
@@ -35,8 +47,9 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" onclick="confirmDialog('{{ $book->id }}')" 
-                                        class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition ease-in-out duration-200">
-                                            Delete
+                                        class="bg-rose-600 text-white py-2 px-4 rounded hover:bg-rose-700 transition ease-in-out duration-200">
+                                        <i class="fa-solid fa-trash"></i>
+                                        Delete
                                         </button>
                                     </form>
                                 @endcan

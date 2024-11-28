@@ -18,18 +18,34 @@
             <table  id="reservation_table" class="table table-striped table-hover">
                 <thead>
                     <tr>
+<<<<<<< Updated upstream
                         <th scope="col">ID</th>
+=======
+                        <th scope="col">No</th>
+                        @if(Auth::user()->role_id==1)
+                        <th scope="col">Name</th>
+                        @endif 
+>>>>>>> Stashed changes
                         <th scope="col">Book Title</th>
                         <th scope="col">Reservation Date</th>
                         <th scope="col">Return Date</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" style="width:25%">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach($reserves as $reservation)
                         <tr>
+<<<<<<< Updated upstream
                             <td>{{ $reservation->id }}</td>
+=======
+                            <td>{{$loop->iteration}}</td>
+
+                            @if(Auth::user()->role_id==1)
+                            <td>{{ $reservation->user->name }}</td>
+                            @endif 
+                            
+>>>>>>> Stashed changes
                             <td>{{ $reservation->book->title }}</td>
                             @php
                                 $waktu_pinjam = \Carbon\Carbon::parse($reservation->waktu_pinjam)->format('d-m-Y');
@@ -45,10 +61,23 @@
                             @endphp
                             <td><span class="{{ $class }}">{{ $reservation->status }}</span></td>
                             <td>
+
+                            @if (Auth::user()->role_id == 1)
+                                <button type="button" onclick="window.location.href='{{ url('reservation/edit', encrypt($reservation->id)) }}'" 
+                                    class="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition ease-in-out duration-200">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    Edit
+                                </button>
+                            @endif
+
+
                                 <form id="delete-form-{{ $reservation->id }}" action="{{ route('reserve.destroy', encrypt($reservation->id)) }}" method="POST" class="inline-block ml-2">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="button" onclick="confirmDialog('{{ $reservation->id }}')" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ease-in-out duration-200">Delete</button>
+                                    <button type="button" onclick="confirmDialog('{{ $reservation->id }}')" class=" bg-rose-600 text-white py-2 px-4 rounded hover:bg-rose-700 transition ease-in-out duration-200">
+                                        <i class="fa-solid fa-trash"></i>
+                                          Delete
+                                    </button>
                                 </form>
                             </td>
                         </tr>
