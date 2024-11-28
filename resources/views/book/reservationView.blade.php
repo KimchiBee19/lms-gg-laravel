@@ -19,6 +19,9 @@
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
+                        @if(Auth::user()->role_id==1)
+                        <th scope="col">Name</th>
+                        @endif 
                         <th scope="col">Book Title</th>
                         <th scope="col">Reservation Date</th>
                         <th scope="col">Return Date</th>
@@ -30,7 +33,15 @@
                     @foreach($reserves as $reservation)
                         <tr>
                             <td>{{ $reservation->id }}</td>
+
+                            <td>{{ $reservation->book_id }}</td>
+
+                            @if(Auth::user()->role_id==1)
+                            <td>{{ $reservation->user->name }}</td>
+                            @endif 
+                            
                             <td>{{ $reservation->book->title }}</td>
+
                             @php
                                 $waktu_pinjam = \Carbon\Carbon::parse($reservation->waktu_pinjam)->format('d-m-Y');
                                 $waktu_kembali = \Carbon\Carbon::parse($reservation->waktu_kembali)->format('d-m-Y');
