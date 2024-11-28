@@ -28,7 +28,15 @@ class ReservationController extends Controller
 
     public function view()
     {
+<<<<<<< Updated upstream
         $reserves = DB::table('reserves')->where('user_id', Auth::user()->id)->get();
+=======
+        if (Auth::user()->role_id==1){
+            $reserves = Reserve::all();
+        }else{
+            $reserves = Reserve::where('user_id', Auth::user()->id)->get();
+        }
+>>>>>>> Stashed changes
         return view('book.reservationView', compact('reserves'));
     }
 
