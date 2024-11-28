@@ -35,6 +35,8 @@ Route::middleware('auth')->group(function () {
         Route::put('/book/update/{book:id}', [BookController::class, 'update'])->name('book.update');
         Route::delete('/book/delete/{book:id}', [BookController::class, 'destroy'])->name('book.destroy');
         Route::get('/books', [BookController::class, 'list'])->name('book.list');
+        Route::get('/books/add', [BookController::class, 'add'])->name('book.add');
+        Route::post('/books/submit', [BookController::class, 'submit'])->name('book.submit');
     });    
 });
 
