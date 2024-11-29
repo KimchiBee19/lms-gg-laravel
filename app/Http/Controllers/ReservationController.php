@@ -109,4 +109,47 @@ class ReservationController extends Controller
         }
         
     }
+
+    public function edit($id){
+        $reserve=Reserve::findOrFail(decrypt($id));
+        return view('book.reservationEdit', ['reservation' => $reserve]);
+    }
+
+    
+    public function update(Request $request, $id)
+    {
+        $validatedata = $request->validate([
+            'waktu_pinjam'=>'required|date|',
+            'waktu_kembali' => 'required|date|after:waktu_pinjam',
+            'status'=>'required'
+        ], [
+            'waktu_pinjam.required'=>'Reservation Date Harus diisi',
+            'waktu_kembali.required'=>'Return Date Harus diisi',
+            'waktu_kembali.after' => 'Return Date harus setelah Reservation Date',
+            'status.required'=>'Status Harus diisi',
+        ]);
+
+        $waktu_pinjam = \Carbon\Carbon::parse($validatedata['waktu_pinjam']);
+        $waktu_kembali = \Carbon\Carbon::parse($validatedata['waktu_kembali']);
+
+        if($waktu_pinjam->diffInDays($waktu_kembali) > 7){
+            return back()->withErrors(
+                ['waktu_kembali' => 'Return Date harus dalam rentang maksimal satu minggu setelah Reservation Date.']);
+        };
+
+        $reserve = Reserve::findOrFail(decrypt($id));
+        $reserve->update([
+            'status' => $validatedata['status'],
+            'waktu_pinjam' => $validatedata['waktu_pinjam'],
+            'waktu_kembali' => $validatedata['waktu_kembali']
+        ]);
+
+        Session::flash('title', 'Reservation Berhasil Diperbarui!');
+        Session::flash('message', 'Perubahan Reservasi Buku telah disimpan.');
+        Session::flash('icon', 'success');
+
+        return redirect()->route('reserve.view');
+    }
+
+
 }
