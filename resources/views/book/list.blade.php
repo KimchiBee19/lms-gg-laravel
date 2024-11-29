@@ -7,8 +7,6 @@
     <div class="pb-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="container mx-auto p-6">
-<<<<<<< Updated upstream
-=======
             <div class="mb-4 w-5/5 max-w-full mx-auto flex justify-start">
                 <button type="submit" class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700">
                     <a href="/books/add">
@@ -17,7 +15,6 @@
                 </button> 
             </div>
 
->>>>>>> Stashed changes
             <table  id="reservation_table" class="table table-striped table-hover">
                 <thead>
                     <tr>

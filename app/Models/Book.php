@@ -16,6 +16,8 @@ class Book extends Model
         'publisher',
         'pages',
         'quota',
+        'image',
+        'genre_id'
     ];
 
     public function genre()

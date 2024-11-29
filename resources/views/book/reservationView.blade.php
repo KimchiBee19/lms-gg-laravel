@@ -18,14 +18,12 @@
             <table  id="reservation_table" class="table table-striped table-hover">
                 <thead>
                     <tr>
-<<<<<<< Updated upstream
                         <th scope="col">ID</th>
-=======
-                        <th scope="col">No</th>
+
                         @if(Auth::user()->role_id==1)
                         <th scope="col">Name</th>
                         @endif 
->>>>>>> Stashed changes
+
                         <th scope="col">Book Title</th>
                         <th scope="col">Reservation Date</th>
                         <th scope="col">Return Date</th>
@@ -36,17 +34,14 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach($reserves as $reservation)
                         <tr>
-<<<<<<< Updated upstream
                             <td>{{ $reservation->id }}</td>
-=======
-                            <td>{{$loop->iteration}}</td>
 
                             @if(Auth::user()->role_id==1)
                             <td>{{ $reservation->user->name }}</td>
                             @endif 
                             
->>>>>>> Stashed changes
                             <td>{{ $reservation->book->title }}</td>
+
                             @php
                                 $waktu_pinjam = \Carbon\Carbon::parse($reservation->waktu_pinjam)->format('d-m-Y');
                                 $waktu_kembali = \Carbon\Carbon::parse($reservation->waktu_kembali)->format('d-m-Y');
@@ -69,7 +64,6 @@
                                     Edit
                                 </button>
                             @endif
-
 
                                 <form id="delete-form-{{ $reservation->id }}" action="{{ route('reserve.destroy', encrypt($reservation->id)) }}" method="POST" class="inline-block ml-2">
                                     @csrf
