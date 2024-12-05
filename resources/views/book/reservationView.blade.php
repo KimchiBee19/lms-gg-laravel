@@ -56,7 +56,6 @@
                             @endphp
                             <td><span class="{{ $class }}">{{ $reservation->status }}</span></td>
                             <td>
-
                             @if (Auth::user()->role_id == 1)
                                 <button type="button" onclick="window.location.href='{{ url('reservation/edit', encrypt($reservation->id)) }}'" 
                                     class="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition ease-in-out duration-200">
@@ -65,6 +64,7 @@
                                 </button>
                             @endif
 
+                            @if ($reservation->status == "Pending")
                                 <form id="delete-form-{{ $reservation->id }}" action="{{ route('reserve.destroy', encrypt($reservation->id)) }}" method="POST" class="inline-block ml-2">
                                     @csrf
                                     @method('DELETE')
@@ -72,7 +72,8 @@
                                         <i class="fa-solid fa-trash"></i>
                                           Delete
                                     </button>
-                                </form>
+                                </form>                        
+                            @endif
                             </td>
                         </tr>
                     @endforeach
