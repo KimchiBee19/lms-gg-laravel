@@ -9,7 +9,8 @@ class BookService {
     {
         if ($searchTerm) {
             return array_filter($books, function ($book) use ($searchTerm) {
-                return strpos($book['title'], $searchTerm) !== false || strpos($book['author'], $searchTerm) !== false;
+                return stripos($book['title'], $searchTerm) !== false || 
+                stripos($book['author'], $searchTerm) !== false;
             });
         }
         return $books;
