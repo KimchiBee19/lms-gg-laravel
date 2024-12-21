@@ -227,7 +227,7 @@ class BookController extends Controller
             Session::flash('title', 'Book Gagal Diinput!');
             Session::flash('message', '');
             Session::flash('icon', 'error');
-            return back();
+            return back()->withErrors($request)->withInput();
         }
         
     }
